@@ -14,7 +14,10 @@ if uploaded_file is not None:
 
     with open(uploaded_file.name, 'wb') as f:
         f.write(file_bytes)
-    chat.embed(uploaded_file.name)
+    chat.upload(uploaded_file.name)
+
+    uploaded_file = None
+
 
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]

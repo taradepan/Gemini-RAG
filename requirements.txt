@@ -2,4 +2,6 @@ chromadb
 streamlit
 google-generativeai
 python-dotenv
-PyPDF2
+pypdf
+langchain
+langchain-community
