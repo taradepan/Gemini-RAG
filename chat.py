@@ -57,6 +57,7 @@ def upload(file):
             print("Error in " + file + " page " + str(page_num))
             print(e)
             pass
+    os.remove(file)
 
 def query_search(text):
     embedding=hf_emb(text)
