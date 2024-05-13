@@ -22,7 +22,7 @@ def generate_response(prompt, data=""):
     return response.text
        
 client = chromadb.PersistentClient(path='db')
-collection = client.create_collection(name="main")
+collection = client.get_or_create_collection(name="main")
 
 def db(text, embed, file, ids):
     collection.add(
