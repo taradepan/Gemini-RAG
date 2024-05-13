@@ -6,7 +6,7 @@ import google.generativeai as genai
 from langchain_community.document_loaders import PyPDFLoader
 dotenv.load_dotenv()
 
-genai.configure(api_key=os.environ.get('GOOGLE_API_KEY')) 
+genai.configure(api_key=os.environ.get('GEMINI_API_KEY')) 
 def generate_response(prompt, data=""):
     print("*"*100)
     print(data)
@@ -21,7 +21,7 @@ def generate_response(prompt, data=""):
     response.resolve()
     return response.text
        
-client = chromadb.Client()
+client = chromadb.PersistentClient(path='db')
 collection = client.create_collection(name="main")
 
 def db(text, embed, file, ids):
